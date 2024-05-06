@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Topic Title</title>
+
+	<meta name="Author", content="Jonathan Testing">
+	<meta name="description", content="testing description">    
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<!-- Normalizer -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<!-- stylesheet -->
+	<link rel="stylesheet" href="styles.css">
+	<!-- scripts -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+</head>
+
+<body onload="draw();">
+	<header id="trig1">
+		<div class="wrapper">
+			<div class="logo">
+				<h1><a href="../index.html">Home</a></h1>
+			</div>
+		</div>
+	</header>
+
+	<div>
+		<section class="canvas-container">
+			<div class="canvas-container__inner wrapper">
+				<h1>Canvas API</h1>
+				<p>Drawing graphics via JavaScript and the HTML canvas element.</p>
+				<div class="canvas-example">
+					<h2>Rectangle example</h2><br>
+					<canvas id="canvas"></canvas><br><br>
+					<h2>Path example</h2><br>
+					<canvas id="path" width="500" height="300"></canvas><br><br>
+					<h2>Animation Examples</h2><br>
+					<canvas id="canvas2" width="500" height="500"></canvas>
+					<canvas id="canvas-clock" width="150" height="150"></canvas>
+				</div>
+			</div>
+		</section>
+		<div class="spacer"></div> <!--============ Spacer ============-->
+		
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts.js"></script>
+</body>
+
+</html>
+
+<!--============ Notes ============
+	- Default canvas size is 300px x 150px
+	- If your renderings seem distorted, try specifying your width and height attributes explicitly in the <canvas> attributes, and not using CSS.
+	- getContent() takes 1 parameters, the type of context. ex. "2d"
+	- canvas only supports two primitive shapes: rectangles and paths
+	- Available drawing function:
+		- fillRect(x, y, width, height)
+		- strokeRect(x, y, width, height)
+		- clearRect(x, y, width, height)
+		- arc(x, y, radius, startAngle, endAngle)
+		- arc(x, y, radius, startAngle, endAngle, counterclockwise)
+	- Since there are no DOM objects for things you draw in Canvas you can't use CSS to style it. CSS will only affect the rectanglar area of the Canvas itself, so you can set a border and background color, but that's it.
+	~ canvas is light and fast, but complex and may not be the best thing to use all the time~
+-->

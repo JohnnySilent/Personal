@@ -1,0 +1,22 @@
+html {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	height: 100%;
+}
+body {
+	color: #4E5055;
+	font-size: 16px;
+	font-weight: normal;
+	height: 100%;
+	line-height: 1.56;
+	margin: 0;
+}
+
+.site-container {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+}

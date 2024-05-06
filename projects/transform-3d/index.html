@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Topic Title</title>
+
+	<meta name="Author", content="Jonathan Testing">
+	<meta name="description", content="testing description">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<!-- Normalizer -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<!-- stylesheet -->
+	<link rel="stylesheet" href="./styles/fixedHeader.css">
+	<link rel="stylesheet" href="../../styles/main-style.css">
+	<!-- scripts -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../scripts/slider-script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+</head>
+
+<body>
+	<header class="header--transparent" id="trig1">
+		<div class="wrapper">
+			<div class="logo">
+				<h1><a href="../../index.html">Home</a></h1>
+			</div>
+		</div>
+	</header>
+
+	<div class="main-content">
+		<section class="cards-container">
+			<div class="cards-container__inner wrapper">
+				<h1>Transform3D</h1>
+				<p>Add Perepective to parent container. This creates a shared 3D space for all children.</p>
+				<div class="perspective-example">
+					<div class="high-perspective">
+						<div class="card">
+							perspective: 500px;
+						</div>
+						<div class="card type-2">500px</div>
+						<div class="card type-3">500px</div>
+					</div>
+					<div class="low-perspective">
+						<div class="card type-2">100px</div>
+						<div class="card type-3">100px</div>
+						<div class="card">
+							perspective: 100px;
+						</div>
+					</div>
+				</div>
+				<div class="spacer"></div> <!--============ Spacer ============-->
+				<div class="perspective-example">
+					<div class="high-perspective">
+						<div id="example-cube">
+							<div class="face front">1</div>
+							<div class="face back">2</div>
+							<div class="face right">3</div>
+							<div class="face left">4</div>
+							<div class="face top">5</div>
+							<div class="face bottom">6</div>
+						</div>
+					</div>
+					<div class="low-perspective">
+						<div id="example-cube">
+							<div class="face front">1</div>
+							<div class="face back">2</div>
+							<div class="face right">3</div>
+							<div class="face left">4</div>
+							<div class="face top">5</div>
+							<div class="face bottom">6</div>
+						</div>
+					</div>
+				</div>
+				<div class="spacer"></div> <!--============ Spacer ============-->
+				<div class="card-example">
+					<div class="card-desc">
+						<h2>RotateX()</h2>
+						<p>transform: rotateX(360deg);</p>
+					</div>
+					<div class="first-card">
+						<span>Card 1</span>
+					</div>
+				</div>
+				<div class="card-example">
+					<div class="card-desc">
+						<h2>RotateY()</h2>
+						<p>transform: rotateY(360deg);</p>
+					</div>
+					<div class="second-card">
+						<span>Card 2</span>
+					</div>
+				</div>
+				<div class="card-example">
+					<div class="card-desc">
+						<h2>RotateZ()</h2>
+						<p>transform: rotateZ(360deg);</p>
+					</div>
+					<div class="third-card">
+						<span>Card 3</span>
+					</div>
+				</div>
+				<div class="card-example">
+					<div class="card-desc">
+						<h2>Rotate3D()</h2>
+						<p>transform: rotate3d(1, 1, 1, 360deg);</p>
+					</div>
+					<div class="fourth-card">
+						<span>Card 4</span>
+					</div>
+				</div>
+				<div class="card-example">
+					<div class="card-desc">
+						<h2>TranslateZ()</h2>
+						<p>transform: translateZ(200px);</p>
+					</div>
+					<div class="z-card">
+						<span>Card 5</span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="spacer"></div> <!--============ Spacer ============-->
+		<div class="cube-container hide">
+			<div class="cube-container__inner">
+				<div class="cube-container__top">
+					<p>Top face</p>
+				</div>
+				<div class="cube-container__left">
+					<p>Left face</p>
+				</div>
+				<div class="cube-container__right">
+					<p>Right face
+				</div>
+				<div class="cube-container__bottom">
+					<p>Bottom face</p>
+				</div>
+			</div>
+		</div>
+		<section class="triforce-container">
+			<div class="triforce">
+				<div class="triangle"></div>
+				<div class="triangle"></div>
+				<div class="triangle"></div>
+			</div>
+		</section>
+		<!--<section class="3d triforce-container">
+			<div class="triforce">
+				<div class="triangle-3d triangle-1">
+					<div class="triangle-front"></div>
+					<div class="triangle-back"></div>
+					<div class="triangle-bottom"></div>
+					<div class="triangle-left"></div>
+				</div>
+				<div class="triangle-3d triangle-2">
+					<div class="triangle-front"></div>
+					<div class="triangle-back"></div>
+				</div>
+				<div class="triangle-3d triangle-3">
+					<div class="triangle-front"></div>
+					<div class="triangle-back"></div>
+				</div>
+			</div>
+		</section>-->
+	</div>
+
+  	<script type="text/javascript" src="../slick-1.8.1/slick/slick.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+
+		var controller = new ScrollMagic.Controller();
+
+		$(function () { // wait for document ready
+			// build scene
+			var scene = new ScrollMagic.Scene({triggerElement: "#trig1", triggerHook: 0})
+				.setPin("#trig1")
+			.addTo(controller)
+			// .addIndicators({name: "2 (duration: 0)"})
+		});
+
+	</script>
+</body>
+
+</html>

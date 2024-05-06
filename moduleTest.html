@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Module</title>
+	<link rel="stylesheet" href="awards.css" type="text/css" />
+</head>
+
+
+
+<section class="text-cta">
+    <div class="text-cta__inner">
+		<?php
+			$description = get_sub_field( 'description' );
+			$link_type = get_sub_field( 'link_type' );
+			$button_text = get_sub_field( 'link_text' );
+			$page_link	= get_sub_field( 'page_link' );
+			$pdf_link = get_sub_field( 'pdf_link' );
+			$youtube_id = get_sub_field( 'youtube_id' );
+			$external_link 	= get_sub_field( 'external_link' );
+
+			$link_to 		= '';
+			$link_target 	= '';
+			switch( $link_type ) {
+				case 'page' : {
+					$link_to 		= $page_link;
+					$link_target 	= 'target=_self';
+				} break;
+				case "pdf" : {
+					$link_to 		= $pdf_link;
+					$link_target 	= 'target=_blank';
+				} break;
+				case "youtube" : {
+					$link_to 		= 'https://www.youtube.com/watch?v=' . $youtube_id . '&autoplay=1&rel=0&showinfo=0';
+					$link_target 	= 'data-fancybox';
+				} break;
+				case "external" : {
+					$link_to 		= $external_url;
+					$link_target 	= 'target=_blank';
+				} break;
+				default : {} break;
+			}
+		?>
+		<div>
+			<p class="P24 bold"><?php esc_html_e( $description ); ?></p>
+			<a href="<?php echo esc_url( $link_to ); ?>" <?php esc_html_e( $link_target ); ?> class="red"><?php esc_html_e( $link_text ); ?></a>
+		</div>
+    </div>
+</section>

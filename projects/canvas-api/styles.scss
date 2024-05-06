@@ -1,0 +1,73 @@
+/* box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]; */
+
+body {
+	box-sizing: border-box;
+	font-family: 'Helvetica', sans-serif;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit; 
+}
+
+h1, h2, h3, h4, h5{
+	/* padding: 0; */
+	margin: 0;
+}
+
+
+header{
+	background:  rgba(69, 110, 190, 0.6);
+	width: 100%;
+	color: #ffffff;
+	/* position: fixed; */
+	z-index: 1;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(6px);
+
+}
+
+header a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.logo{
+	color: #ffffff;
+	width: 100%;
+	font-family: 'Helvetica', sans-serif;
+}
+
+.menu{
+	margin: 0px auto;
+	display: flex;
+}
+
+.menu > li{
+	display: inline;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 20px;
+}
+
+.wrapper {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.spacer{
+	height: 200px;
+	border-left: 1px dashed #E1E2E4;
+	border-right: 1px dashed #E1E2E4;
+}
+
+.hide {
+	display: none;
+}
+
+
+/* ============ Canvas ============ */
+canvas {
+	border: 1px solid #d7d7d7;
+	background: linear-gradient(#e0e0e0, #ffffff);
+}

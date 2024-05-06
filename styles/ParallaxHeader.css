@@ -1,0 +1,183 @@
+/* box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]; */
+
+/* ClearFix
+	clear: both;
+    display: table;
+    content: ''; */
+
+body {
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
+    margin-top: 200px;
+}
+
+*, *:before, *:after {
+box-sizing: inherit; 
+}
+
+h1, h2, h3, h4, h5{
+    /* padding: 0; */
+    margin: 0;
+}
+
+body{
+    
+    margin: 0 auto;
+    background-color: #FFF;
+    /*padding: 0px 20px 20px 20px;*/
+    
+}
+
+.parallaxer{
+    perspective: 2px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.bg-image::after{
+    background-image: url(../images/taylor-van-riper-unsplash.jpg); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.section{
+    height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parallax::after{
+    content: " ";
+    position: absolute;
+    top: -100px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(-2px) scale(2.5);
+    z-index: -2;
+}
+
+.sectionHeading {
+    transform: translateZ(-1px) scale(1.5);
+    z-index: -1;
+    animation: translateY;
+}
+
+.wrapper{
+max-width: 50rem;
+margin: 0 auto;
+}
+
+header{
+    background:  rgba(69, 110, 190, 1);
+    width: 100%;
+    color: #ffffff;
+    /* position: fixed; */
+    z-index: 1;
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(6px); */
+
+}
+
+header .content-wrapper{
+    max-width: 1000px;
+}
+
+header a{
+color: #ffffff;
+text-decoration: none;
+}
+
+.logo{
+    color: #ffffff;
+    width: 100%;
+    padding: 1rem;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.nav-toggle{
+    display: block;
+    padding: 10px;
+    background: black;
+    width: 50px;
+    height: 50px;
+    display: none;
+
+}
+
+.nav-toggle span{
+    background: rgb(120, 120, 120);
+    height: 3px;
+    width: 100%;
+    margin-top: 5px;
+    display: block;
+}
+
+.nav-toggle:hover span{
+    background: white;
+}
+
+.menu{
+margin: 0px auto;
+display: flex;
+}
+
+.menu > li{
+display: inline;
+text-align: center;
+text-decoration: none;
+padding: 10px 20px;
+}
+
+.dropdown:hover .dropcon{
+    display: block;
+}
+
+.dropcon{
+    position: absolute;
+    z-index: 2;
+    background: #003090;
+    box-shadow: 4px 4px 10px rgba(10, 10, 10, 0.8);
+    display: none;
+}
+
+@media only screen and (max-width: 720px){
+    .nav-toggle{
+        display: block;
+        z-index: 11;
+    }
+    .menu{
+        position: absolute;
+        z-index: 2;
+        flex-direction: column;
+        margin: 0;
+        background: #003090;
+        transition: left .2s ease;
+    }
+
+    .off-screen{
+        left: -125px;
+    }
+
+    .on-screen{
+        left: 0;
+    }
+
+    .menu > li{
+        display: block;
+        text-align: left;
+    }
+
+    .dropcon{
+        position: relative;
+        background: #003090;
+        display: none;
+        box-shadow: 4px 4px 10px rgba(10, 10, 10, 0.8);
+    }
+    
+}
