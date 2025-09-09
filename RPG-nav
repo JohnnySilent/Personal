@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JRPG Style Navigation</title>
   <style>
-    /* Reset */
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -14,26 +15,40 @@
 
     body {
       background: #101820;
-      font-family: 'Press Start 2P', monospace; /* Pixel font */
+      font-family: 'Press Start 2P', monospace;
       color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     nav {
-      border: 4px solid #8fbaff;
+      width: 100%;
+      border-bottom: 4px solid #8fbaff;
       background: #1a273a;
-      padding: 20px 40px;
       box-shadow: 0 0 15px #8fbaff, inset 0 0 5px #4060ff;
-      border-radius: 6px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #cfdfff;
+      font-size: 16px;
     }
 
     ul {
       list-style: none;
       display: flex;
-      gap: 40px;
+      gap: 30px;
     }
 
     li {
@@ -43,22 +58,20 @@
     a {
       text-decoration: none;
       color: #cfdfff;
-      font-size: 16px;
+      font-size: 14px;
       padding: 5px 10px;
       transition: all 0.2s ease-in-out;
       display: inline-block;
     }
 
-    /* Hover Effect - like a cursor highlight */
-    a:hover, a:focus {
+    a.active, a:hover, a:focus {
       background: #2a3f5f;
       color: #fff;
       border: 2px solid #8fbaff;
       box-shadow: 0 0 8px #4060ff;
     }
 
-    /* Simulate a blinking cursor on hover */
-    a:hover::after {
+    a.active::before, a:hover::before {
       content: "▶";
       position: absolute;
       left: -20px;
@@ -70,28 +83,99 @@
       50% { opacity: 0; }
     }
 
-    /* Mobile stacked menu */
-    @media (max-width: 600px) {
-      ul {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-      }
+    /* Mobile Styles */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
     }
 
-    /* Load pixel font */
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #cfdfff;
+    }
+
+    @media (max-width: 768px) {
+      ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1a273a;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      ul.open {
+        max-height: 300px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
   <nav>
-    <ul>
-      <li><a href="#">Items</a></li>
-      <li><a href="#">Magic</a></li>
-      <li><a href="#">Equip</a></li>
-      <li><a href="#">Status</a></li>
-      <li><a href="#">Save</a></li>
-    </ul>
+    <div class="nav-container">
+      <div class="logo">⚔ JRPG MENU</div>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul id="menu">
+        <li><a href="#" class="active">Items</a></li>
+        <li><a href="#">Magic</a></li>
+        <li><a href="#">Equip</a></li>
+        <li><a href="#">Status</a></li>
+        <li><a href="#">Save</a></li>
+      </ul>
+    </div>
   </nav>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const links = menu.querySelectorAll("a");
+
+    // Toggle mobile menu
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("open");
+    });
+
+    // Keyboard navigation like JRPG
+    let currentIndex = 0;
+
+    function updateActive() {
+      links.forEach(link => link.classList.remove("active"));
+      links[currentIndex].classList.add("active");
+      links[currentIndex].focus();
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        currentIndex = (currentIndex + 1) % links.length;
+        updateActive();
+        e.preventDefault();
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        currentIndex = (currentIndex - 1 + links.length) % links.length;
+        updateActive();
+        e.preventDefault();
+      } else if (e.key === "Enter") {
+        links[currentIndex].click();
+      }
+    });
+
+    // Initialize
+    updateActive();
+  </script>
 </body>
 </html>
