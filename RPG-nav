@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JRPG Style Navigation</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #101820;
+      font-family: 'Press Start 2P', monospace; /* Pixel font */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    nav {
+      border: 4px solid #8fbaff;
+      background: #1a273a;
+      padding: 20px 40px;
+      box-shadow: 0 0 15px #8fbaff, inset 0 0 5px #4060ff;
+      border-radius: 6px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+
+    li {
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+      color: #cfdfff;
+      font-size: 16px;
+      padding: 5px 10px;
+      transition: all 0.2s ease-in-out;
+      display: inline-block;
+    }
+
+    /* Hover Effect - like a cursor highlight */
+    a:hover, a:focus {
+      background: #2a3f5f;
+      color: #fff;
+      border: 2px solid #8fbaff;
+      box-shadow: 0 0 8px #4060ff;
+    }
+
+    /* Simulate a blinking cursor on hover */
+    a:hover::after {
+      content: "▶";
+      position: absolute;
+      left: -20px;
+      color: #8fbaff;
+      animation: blink 1s infinite step-start;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Mobile stacked menu */
+    @media (max-width: 600px) {
+      ul {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+    }
+
+    /* Load pixel font */
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Items</a></li>
+      <li><a href="#">Magic</a></li>
+      <li><a href="#">Equip</a></li>
+      <li><a href="#">Status</a></li>
+      <li><a href="#">Save</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
